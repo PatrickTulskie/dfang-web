@@ -1,3 +1,4 @@
 dist/
 wasm/target/
 .wrangler/
+api/target/
