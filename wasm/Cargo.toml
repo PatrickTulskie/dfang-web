@@ -8,8 +8,8 @@ publish = false
 crate-type = ["cdylib"]
 
 [dependencies]
-dfang = { git = "https://github.com/PatrickTulskie/dfang" }
-rfang = { git = "https://github.com/PatrickTulskie/dfang" }
+dfang = { git = "https://github.com/PatrickTulskie/dfang", tag = "v0.3.0" }
+rfang = { git = "https://github.com/PatrickTulskie/dfang", tag = "v0.3.0" }
 
 [profile.release]
 opt-level = "s"
