@@ -35,12 +35,13 @@ node --test test/abi.test.mjs
 
 CI runs the same build and test on every push and pull request.
 
-## Deploying (Cloudflare Pages)
+## Deploying (Cloudflare Workers)
 
-Connect the repo to Cloudflare Pages with:
+The site deploys as a Cloudflare Worker serving static assets; `wrangler.jsonc`
+points it at `dist/`. Connect the repo in the Cloudflare dashboard with:
 
 - **Build command:** `./build.sh`
-- **Build output directory:** `dist`
+- **Deploy command:** `npx wrangler deploy`
 
-The v2 build image ships with `rustup`, so no other configuration is needed.
+The build image ships with `rustup`, so no other configuration is needed.
 Pushes to `main` build and deploy automatically.
