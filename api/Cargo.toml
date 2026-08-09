@@ -1,0 +1,16 @@
+[package]
+name = "dfang-api"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+tiny_http = "0.12"
+dfang = { git = "https://github.com/PatrickTulskie/dfang", tag = "v0.3.0" }
+rfang = { git = "https://github.com/PatrickTulskie/dfang", tag = "v0.3.0" }
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true

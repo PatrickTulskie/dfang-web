@@ -1,0 +1,6 @@
+services:
+  dfang:
+    image: ghcr.io/patricktulskie/dfang-web:latest
+    ports:
+      - "8080:8080"
+    restart: unless-stopped

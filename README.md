@@ -12,6 +12,8 @@ machine.
   in `site/main.js` handles strings by hand.
 - `site/` — the static site (two pages, no framework, no dependencies).
 - `worker/` — the Worker script behind the API routes, running the same wasm.
+- `api/` — the same API as a native binary, used by the Docker image.
+- `docker/` — Caddyfile and entrypoint for the Docker image.
 - `build.sh` — builds the wasm and assembles everything into `dist/`.
 
 ## API
@@ -51,6 +53,25 @@ node --test test/abi.test.mjs
 ```
 
 CI runs the same build and test on every push and pull request.
+
+## Running it yourself (Docker)
+
+The whole thing — site and API — ships as a container image, so nothing has to
+leave your machine or homelab. Caddy serves the static site and proxies
+`/api/*` to a small Rust binary built from the same pinned dfang crates.
+
+```sh
+docker run -p 8080:8080 ghcr.io/patricktulskie/dfang-web:latest
+```
+
+or with the compose file in this repo:
+
+```sh
+docker compose up -d
+```
+
+Then browse http://localhost:8080 or POST to http://localhost:8080/api/defang.
+Images for amd64 and arm64 are published to GHCR on every push to main.
 
 ## Deploying (Cloudflare Workers)
 

@@ -1,0 +1,8 @@
+.git
+.github
+.wrangler
+dist
+wasm/target
+api/target
+worker
+test

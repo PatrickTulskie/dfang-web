@@ -49,6 +49,11 @@ http://evil.example.com</code></pre>
         <li>Nothing is stored, and there is no auth, no rate key, no tracking.</li>
       </ul>
 
+      <h2>Keep it local</h2>
+      <p>Want the API without the network hop? The whole site, API included,
+      ships as a Docker image you can run on your own machine or homelab:</p>
+      <pre><code>$ docker run -p 8080:8080 ghcr.io/patricktulskie/dfang-web:latest</code></pre>
+
       <p><a class="back" href="./">&larr; Back to defanging</a></p>
     </section>
   </main>
