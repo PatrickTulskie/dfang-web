@@ -24,20 +24,8 @@
       the <code>dfang</code> and <code>rfang</code> CLIs, compiled to WebAssembly. Nothing
       you paste is sent anywhere.</p>
 
-      <h2>API</h2>
-      <p>There's also a small API: POST plain text and get it back transformed.
-      Unlike the page above, this does send your text through Cloudflare, so keep
-      genuinely sensitive IOC lists in the browser boxes. Nothing is stored.</p>
-
-      <pre><code>curl --data-binary 'http://evil.example.com' https://dfang.sh/api/defang
-hxxp[://]evil[.]example[.]com
-
-curl --data-binary 'hxxp[://]evil[.]example[.]com' https://dfang.sh/api/refang
-http://evil.example.com</code></pre>
-
-      <p>Bodies can be multi-line (<code>--data-binary @iocs.txt</code> works),
-      responses are <code>text/plain</code>, CORS is open, and bodies are capped
-      at 1,000,000 characters.</p>
+      <p>There's also a small <a href="/api">API</a> for scripting — with the
+      caveat that, unlike this site, it sends your text through Cloudflare.</p>
 
       <h2>Links</h2>
       <ul class="links">
@@ -53,6 +41,8 @@ http://evil.example.com</code></pre>
   <footer>
     <nav>
       <a href="./">Home</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="/api">API</a>
       <span aria-hidden="true">&middot;</span>
       <a href="https://github.com/PatrickTulskie/dfang">GitHub</a>
       <span aria-hidden="true">&middot;</span>

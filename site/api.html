@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API — dfang</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="./"><img class="logo" src="img/dfang_logo.png" alt="dfang — taking the bite out of IOCs, written in rust"></a>
+  </header>
+
+  <main class="single">
+    <section class="card">
+      <h2>API</h2>
+      <p>POST plain text, get it back transformed. Same Rust-compiled-to-wasm
+      code as the boxes on the front page, running in a Cloudflare Worker.</p>
+
+      <div class="callout">
+        <strong>Heads up:</strong> unlike the front page, which does everything
+        locally in your browser, the API sends your text over the network. It
+        transits Cloudflare's edge and could wind up in server logs along the
+        way. For genuinely sensitive IOC lists, use the boxes on the
+        <a href="./">front page</a> — those never leave your machine.
+      </div>
+
+      <h2>Endpoints</h2>
+      <p><code>POST /api/defang</code> — defangs the raw request body.</p>
+      <pre><code>$ curl --data-binary 'http://evil.example.com' https://dfang.sh/api/defang
+hxxp[://]evil[.]example[.]com</code></pre>
+
+      <p><code>POST /api/refang</code> — puts the bite back.</p>
+      <pre><code>$ curl --data-binary 'hxxp[://]evil[.]example[.]com' https://dfang.sh/api/refang
+http://evil.example.com</code></pre>
+
+      <p>Multi-line bodies work, so you can pipe a whole file through:</p>
+      <pre><code>$ curl --data-binary @iocs.txt https://dfang.sh/api/defang</code></pre>
+
+      <h2>Behavior</h2>
+      <ul class="links">
+        <li>The request body is treated as raw UTF-8 text; the content type header is ignored.</li>
+        <li>Responses are <code>text/plain; charset=utf-8</code>.</li>
+        <li>CORS is wide open, so you can call it from browser code on any origin.</li>
+        <li>Bodies are capped at 1,000,000 characters — larger requests get a <code>413</code>.</li>
+        <li>Non-POST requests get a <code>405</code>; unknown <code>/api</code> paths get a <code>404</code>.</li>
+        <li>Nothing is stored, and there is no auth, no rate key, no tracking.</li>
+      </ul>
+
+      <p><a class="back" href="./">&larr; Back to defanging</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="./">Home</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="/about">About</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="https://github.com/PatrickTulskie/dfang">GitHub</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="https://patricktulskie.com">patricktulskie.com</a>
+    </nav>
+  </footer>
+</body>
+</html>
