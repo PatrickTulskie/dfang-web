@@ -11,7 +11,24 @@ machine.
   depending on the dfang repo as a git dependency. No wasm-bindgen; the JS glue
   in `site/main.js` handles strings by hand.
 - `site/` — the static site (two pages, no framework, no dependencies).
+- `worker/` — the Worker script behind the API routes, running the same wasm.
 - `build.sh` — builds the wasm and assembles everything into `dist/`.
+
+## API
+
+POST plain text, get it back transformed as `text/plain`. Multi-line bodies
+work, CORS is open, bodies are capped at 1,000,000 characters, nothing is
+stored.
+
+```sh
+$ curl --data-binary 'http://evil.example.com' https://dfang.sh/api/defang
+hxxp[://]evil[.]example[.]com
+
+$ curl --data-binary 'hxxp[://]evil[.]example[.]com' https://dfang.sh/api/refang
+http://evil.example.com
+
+$ curl --data-binary @iocs.txt https://dfang.sh/api/defang
+```
 
 ## Building locally
 

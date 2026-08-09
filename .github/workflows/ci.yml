@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: ./build.sh
-      - run: node --test test/abi.test.mjs
+      - run: node --test test/abi.test.mjs test/api.test.mjs
