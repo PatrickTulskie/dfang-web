@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>dfang — taking the bite out of IOCs</title>
+  <meta name="description" content="Defang and refang URLs, emails, and IPs right in your browser. Nothing leaves your machine.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img class="logo" src="img/dfang_logo.png" alt="dfang — taking the bite out of IOCs, written in rust">
+    <p class="tagline">Defang and refang IOCs right here in your browser.
+      Powered by the <a href="https://github.com/PatrickTulskie/dfang">dfang</a> Rust library compiled to WebAssembly
+      — nothing you paste ever leaves your machine.</p>
+  </header>
+
+  <main>
+    <p id="status" class="status" hidden>Loading WebAssembly&hellip;</p>
+
+    <section class="card">
+      <div class="out-head">
+        <h2>Fanged <span class="pill pill-alt">handle with care</span></h2>
+        <button class="copy" data-target="fanged" type="button">Copy</button>
+      </div>
+      <label for="fanged">URLs, emails, IPs — live and clickable</label>
+      <textarea id="fanged" rows="6" spellcheck="false" autocomplete="off"
+        placeholder="http://malware.example.com/payload.exe&#10;attacker@evil.com&#10;192.168.1.100"></textarea>
+    </section>
+
+    <section class="card">
+      <div class="out-head">
+        <h2>Defanged <span class="pill">safe to share</span></h2>
+        <button class="copy" data-target="defanged" type="button">Copy</button>
+      </div>
+      <label for="defanged">Bite removed — paste here to refang</label>
+      <textarea id="defanged" rows="6" spellcheck="false" autocomplete="off"
+        placeholder="hxxp[://]malware[.]example[.]com/payload[.]exe&#10;attacker[@]evil[.]com&#10;192[.]168[.]1[.]100"></textarea>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="about.html">About</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="https://github.com/PatrickTulskie/dfang">GitHub</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="https://patricktulskie.com">patricktulskie.com</a>
+    </nav>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

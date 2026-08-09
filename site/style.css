@@ -1,0 +1,180 @@
+:root {
+  --bg: #fcc981;
+  --bg-deep: #f7b968;
+  --ink: #c2492c;
+  --ink-dark: #5c2015;
+  --accent: #f2673f;
+  --cream: #fff7eb;
+  --cream-dim: #ffefd9;
+  --shadow: rgba(92, 32, 21, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  background-image: radial-gradient(circle at 20% -10%, #ffd9a1 0%, var(--bg) 55%);
+  color: var(--ink-dark);
+  font-family: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Nunito,
+    -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem 0.5rem;
+}
+
+.logo {
+  max-width: min(560px, 92vw);
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.tagline {
+  max-width: 42rem;
+  margin: 1.25rem auto 0;
+  font-size: 1.05rem;
+}
+
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  width: min(760px, 94vw);
+  margin: 1.5rem auto 2rem;
+  align-items: start;
+}
+
+.status {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.card {
+  background: var(--cream);
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 0 8px 0 var(--shadow);
+  padding: 1.5rem;
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  color: var(--ink);
+  font-size: 1.6rem;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  background: var(--ink);
+  border-radius: 999px;
+  padding: 0.25em 0.9em;
+}
+
+.pill-alt { background: var(--accent); }
+
+label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  border: 2px solid var(--bg-deep);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink-dark);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+textarea:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+textarea[readonly] {
+  background: var(--cream-dim);
+  margin-bottom: 0;
+}
+
+.out-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.out-head h2 { margin: 0; }
+
+.card textarea { margin-bottom: 0; }
+
+.copy {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cream);
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  padding: 0.35em 1.1em;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.05s ease, background 0.15s ease;
+}
+
+.copy:hover { background: var(--ink); }
+.copy:active { transform: translateY(2px); }
+
+a { color: var(--ink); font-weight: 700; }
+a:hover { color: var(--accent); }
+
+.links { padding-left: 1.2rem; }
+.links li { margin-bottom: 0.5rem; }
+
+.back { text-decoration: none; }
+
+code {
+  background: var(--cream-dim);
+  border-radius: 6px;
+  padding: 0.1em 0.35em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+footer {
+  text-align: center;
+  padding: 1.25rem 1rem 2rem;
+  font-size: 0.95rem;
+}
+
+footer span { margin: 0 0.5rem; color: var(--ink); }
