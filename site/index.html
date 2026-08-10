@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>dfang — taking the bite out of IOCs</title>
-  <meta name="description" content="Defang and refang URLs, emails, and IPs right in your browser. Nothing leaves your machine.">
+  <title>dfang — share a sketchy link without anyone clicking it</title>
+  <meta name="description" content="Turn a risky link, email address, or IP into something safe to paste anywhere — and back again. Runs in your browser; nothing you paste leaves your machine.">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
   <link rel="stylesheet" href="style.css">
@@ -12,9 +12,11 @@
 <body>
   <header>
     <img class="logo" src="img/dfang_logo.png" alt="dfang — taking the bite out of IOCs, written in rust">
-    <p class="tagline">Defang and refang IOCs right here in your browser.
-      Powered by the <a href="https://github.com/PatrickTulskie/dfang">dfang</a> Rust library compiled to WebAssembly
-      — nothing you paste ever leaves your machine.</p>
+    <p class="tagline">Got a link, address, or IP you don't want anyone clicking? Paste it below and
+      dfang rewrites it into something safe to send — no live links, no surprise previews, no one
+      tapping it by accident. Powered by the
+      <a href="https://github.com/PatrickTulskie/dfang">dfang</a> Rust library compiled to WebAssembly,
+      so nothing you paste ever leaves your machine.</p>
   </header>
 
   <main>
@@ -25,9 +27,9 @@
         <h2>Fanged <span class="pill pill-alt">handle with care</span></h2>
         <button class="copy" data-target="fanged" type="button">Copy</button>
       </div>
-      <label for="fanged">URLs, emails, IPs — live and clickable</label>
+      <label for="fanged">Paste the risky thing here — links, addresses, IPs</label>
       <textarea id="fanged" rows="6" spellcheck="false" autocomplete="off"
-        placeholder="http://malware.example.com/payload.exe&#10;attacker@evil.com&#10;192.168.1.100"></textarea>
+        placeholder="http://account-verify-login.com/reset&#10;billing@secure-alerts-mail.net&#10;203.0.113.42"></textarea>
     </section>
 
     <section class="card">
@@ -35,9 +37,9 @@
         <h2>Defanged <span class="pill">safe to share</span></h2>
         <button class="copy" data-target="defanged" type="button">Copy</button>
       </div>
-      <label for="defanged">Bite removed — paste here to refang</label>
+      <label for="defanged">Send this instead — or paste one here to turn it back</label>
       <textarea id="defanged" rows="6" spellcheck="false" autocomplete="off"
-        placeholder="hxxp[://]malware[.]example[.]com/payload[.]exe&#10;attacker[@]evil[.]com&#10;192[.]168[.]1[.]100"></textarea>
+        placeholder="hxxp[://]account-verify-login[.]com/reset&#10;billing[@]secure-alerts-mail[.]net&#10;203[.]0[.]113[.]42"></textarea>
     </section>
   </main>
 

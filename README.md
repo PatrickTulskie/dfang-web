@@ -1,9 +1,10 @@
 # dfang-web
 
-The web frontend for [dfang](https://github.com/PatrickTulskie/dfang): defang and
-refang IOCs (URLs, emails, IPs) entirely in the browser. The Rust `dfang` and
-`rfang` crates are compiled to WebAssembly, so nothing you paste leaves your
-machine.
+The web frontend for [dfang](https://github.com/PatrickTulskie/dfang): rewrite a
+risky URL, email address, or IP into something safe to paste anywhere — and back
+again — entirely in the browser. Security folks know this as defanging and
+refanging IOCs. The Rust `dfang` and `rfang` crates are compiled to WebAssembly,
+so nothing you paste leaves your machine.
 
 ## Layout
 
