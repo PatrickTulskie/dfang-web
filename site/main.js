@@ -1,4 +1,9 @@
 const status = document.getElementById("status");
+const introDialog = document.getElementById("intro-dialog");
+
+document.getElementById("intro-open").addEventListener("click", () => {
+  introDialog.showModal();
+});
 
 async function loadWasm() {
   const url = "dfang_wasm.wasm";

@@ -29,17 +29,76 @@ header {
   padding: 2rem 1rem 0.5rem;
 }
 
+.logo-wrap {
+  width: min(560px, 92vw);
+  margin: 0 auto;
+}
+
 .logo {
-  max-width: min(560px, 92vw);
+  display: block;
+  width: 100%;
   height: auto;
   border-radius: 24px;
   box-shadow: 0 8px 24px var(--shadow);
 }
 
-.tagline {
-  max-width: 42rem;
-  margin: 1.25rem auto 0;
-  font-size: 1.05rem;
+.what-is {
+  display: block;
+  margin: 0.85rem 0 0 auto;
+  padding: 0.55em 1.1em;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--cream);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.what-is:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.intro-dialog {
+  width: min(30rem, calc(100vw - 2rem));
+  padding: 1.5rem;
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  background: var(--cream);
+  color: var(--ink-dark);
+  box-shadow: 0 8px 0 var(--shadow);
+}
+
+.intro-dialog::backdrop { background: rgba(92, 32, 21, 0.45); }
+
+.intro-dialog h2 {
+  margin: 0;
+  color: var(--ink);
+}
+
+.intro-dialog p { margin: 0.75rem 0 1.25rem; }
+.intro-dialog form { text-align: right; }
+
+.dialog-close {
+  padding: 0.6em 1.2em;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--cream);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dialog-close:hover { background: var(--ink); }
+
+.what-is:focus-visible,
+.dialog-close:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 
 main {
