@@ -11,13 +11,21 @@
 </head>
 <body>
   <header>
-    <img class="logo" src="img/dfang_logo.png" alt="dfang — taking the bite out of IOCs, written in rust">
-    <p class="tagline">Got a link, address, or IP you don't want anyone clicking? Paste it below and
-      dfang rewrites it into something safe to send — no live links, no surprise previews, no one
-      tapping it by accident. Powered by the
-      <a href="https://github.com/PatrickTulskie/dfang">dfang</a> Rust library compiled to WebAssembly,
-      so nothing you paste ever leaves your machine.</p>
+    <div class="logo-wrap">
+      <img class="logo" src="img/dfang_logo.png" alt="dfang — taking the bite out of IOCs, written in rust">
+      <button class="what-is" id="intro-open" type="button">What is this?</button>
+    </div>
   </header>
+
+  <dialog class="intro-dialog" id="intro-dialog" aria-labelledby="intro-title">
+    <h2 id="intro-title">What is dfang?</h2>
+    <p>Ever needed to share a link or an email with someone and want to avoid accidental clicks or
+      previews? Paste it in below and get a safe version to share. Learn more on the
+      <a href="/about">About page</a>.</p>
+    <form method="dialog">
+      <button class="dialog-close" type="submit">Got it.</button>
+    </form>
+  </dialog>
 
   <main>
     <p id="status" class="status" hidden>Loading WebAssembly&hellip;</p>
