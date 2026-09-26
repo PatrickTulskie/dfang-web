@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — dfang</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="./"><img class="logo" src="img/dfang_logo.png" alt="dfang — taking the bite out of IOCs, written in rust"></a>
+  </header>
+
+  <main class="single">
+    <section class="card">
+      <h2>Privacy</h2>
+      <p>dfang doesn't collect, store, or transmit any data. Everything you paste into the app
+      or its share extension is processed on your device and never leaves it. There are no
+      accounts, analytics, ads, or third-party SDKs.</p>
+
+      <p>The dfang.sh website works the same way: it runs locally in your browser. The optional
+      <a href="/api">API</a> at dfang.sh/api is separate and sends the text you submit through
+      Cloudflare to process it.</p>
+
+      <p>Questions: <a id="contact" data-user="troppus" data-host="hs.gnafd">support[@]dfang[.]sh</a></p>
+
+      <p><a class="back" href="./">&larr; Back to defanging</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="./">Home</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="/about">About</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="/api">API</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="https://github.com/PatrickTulskie/dfang">GitHub</a>
+      <span aria-hidden="true">&middot;</span>
+      <a href="https://patricktulskie.com">patricktulskie.com</a>
+    </nav>
+  </footer>
+
+  <script>
+    const contact = document.getElementById("contact");
+    const unreverse = (s) => [...s].reverse().join("");
+    const email = `${unreverse(contact.dataset.user)}@${unreverse(contact.dataset.host)}`;
+    contact.href = `mailto:${email}`;
+    contact.textContent = email;
+  </script>
+</body>
+</html>
